@@ -1,6 +1,7 @@
 import ImageBanner from '../components/banner/ImageBanner';
 import CategoryGrid from '../components/home/CategoryGrid';
 import LoginComponent from '../components/home/LoginComponent';
+import RecommendedProductList from '../components/home/RecommendedProductList';
 import Nav from '../components/nav/Nav';
 import styled from 'styled-components';
 
@@ -31,6 +32,12 @@ export default function Index() {
       </div>
     </div>
         <LoginComponent />
+        
+        <div style={{ display: 'flex', justifyContent: 'center', padding: '5px' }}>
+      <div style={{ width: '100%', maxWidth: '1400px' }}>
+        <RecommendedProductList />
+      </div>
+    </div>
         </GlobalStyles>
         
     )
@@ -40,4 +47,5 @@ const GlobalStyles = styled.body`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
 `;
