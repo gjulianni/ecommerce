@@ -121,7 +121,7 @@ export default function LoginComponent() {
 
 
 const WrapperSld = styled.div`
-     width: 78.8%;
+     width: 100%;
     background-color: rgb(30, 135, 255);
     height: 150px;
     display: flex;

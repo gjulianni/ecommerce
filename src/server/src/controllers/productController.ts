@@ -41,7 +41,7 @@ export const getCategories = async (req: Request, res: Response) => {
 
   export const getProducts = async (req: Request, res: Response) => {
     try {
-      const result = await pool.query('SELECT id, name, description, price, images FROM products');
+      const result = await pool.query('SELECT id, name, description, price, images FROM products ORDER BY RANDOM() LIMIT 4');
      
       res.json(result.rows); 
     } catch (error) {

@@ -22,7 +22,7 @@ export default function Index() {
       <GlobalStyles>
         <Nav />
 
-        <div>
+        <div style={{ display: 'flex', justifyContent: 'center', padding: '5px' }}>
       <ImageBanner images={images} />
     </div>
 
@@ -31,11 +31,18 @@ export default function Index() {
         <CategoryGrid />
       </div>
     </div>
+    <div style={{ display: 'flex', justifyContent: 'center', padding: '5px' }}>
+    <div style={{ width: '100%', maxWidth: '80%' }}>
         <LoginComponent />
-        
+        </div>
+        </div>
         <div style={{ display: 'flex', justifyContent: 'center', padding: '5px' }}>
-      <div style={{ width: '100%', maxWidth: '1400px' }}>
+      <div style={{ width: '100%', maxWidth: '80%' }}>
+      <h1>👉 Produtos selecionados para você</h1>
+        <WrapperSld>
+          
         <RecommendedProductList />
+        </WrapperSld>
       </div>
     </div>
         </GlobalStyles>
@@ -49,3 +56,16 @@ const GlobalStyles = styled.body`
     box-sizing: border-box;
 
 `;
+
+
+const WrapperSld = styled.div`
+   background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.32);
+  padding: 10px;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden; /* Evita qualquer overflow */
+  box-sizing: border-box;
+    
+`
