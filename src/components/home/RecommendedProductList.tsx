@@ -19,7 +19,7 @@ export default function RecommendedProductList() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/products/products");
+        const response = await axios.get("http://localhost:3001/api/products/productList");
         setProducts(response.data);
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);

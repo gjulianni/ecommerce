@@ -8,6 +8,7 @@
     align-items: center;
     padding: 30px 25px;
     margin: 0;
+    position: relative;
   }
   
   
@@ -48,14 +49,35 @@
     text-decoration: none;
   }
 
+  .search-area {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    align-items: center;
+  }
+
+  .search-area > button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s ease transform;
+  }
+
+  .search-area > button:hover {
+    transform: scale(1.2);
+  }
+
   #nav-search {
-    padding: 12px 20px;
-    max-width: 150px;
+    padding: 22px 10px;
+    width: 450px;
     border-radius: 8px;
     border: 1px solid rgb(170, 170, 170);
     outline: none;
     font-size: 18px;
-   
+    position: relative;
+    
   }
   
   

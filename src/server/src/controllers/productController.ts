@@ -49,3 +49,26 @@ export const getCategories = async (req: Request, res: Response) => {
       res.status(500).json({ message: 'Erro ao buscar produtos' });
     }
   };
+
+  export const searchProduct = async (req: Request, res: Response) => {
+    
+    let {searchString} = req.params;
+
+    if(!searchString) {
+      return res.status(404).json({ message: "Por favor, insira um termo válido para consultar produtos." })
+    }
+    
+    try {
+      const result = await pool.query(`SELECT * from products WHERE name ILIKE $1`,
+        [`%${searchString}%`]
+      );
+      if(result && result.rowCount && result.rowCount > 0) {
+        res.status(200).json(result.rows)
+      } else {
+        res.status(500).json({ message: 'Não há produtos no banco de dados com este nome.' })
+      } 
+    } catch (error) {
+      console.error('Erro ao buscar produtos:', error);
+      res.status(500).json({ message: 'Erro ao buscar produtos:', error });
+    }
+  };

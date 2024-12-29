@@ -6,7 +6,7 @@ import Teste from './pages/Teste';
 import ProtectedRoute from './routes/auth/ProtectedRoute';
 import LoginForm from './components/auth/LoginForm';
 import RegisterForm from './components/auth/RegisterForm';
-import Nav from './components/nav/Nav';
+import { SearchResults } from './pages/SearchResults';
 import Index from './pages/Index';
 
 function App() {
@@ -44,6 +44,14 @@ function App() {
                   <ProtectedRoute>
                   <Home />
                   </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/search-results"
+              element={
+                  
+                  <SearchResults />
+                  
               }
             />
              <Route path='*' element={ <Index />} />
