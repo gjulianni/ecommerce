@@ -49,6 +49,7 @@ const LoginForm: React.FC = () => {
         // Limpar os campos do formulário
         setEmail('');
         setPassword('');
+        navigate('/home');
       }
     } catch (err) {
       setError('An error occurred while logging in');
