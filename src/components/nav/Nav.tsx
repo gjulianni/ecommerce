@@ -5,6 +5,7 @@ import './Nav.css'
 import axios from 'axios';
 import { Product } from '../../types/Product';
 import { useNavigate } from 'react-router-dom';
+import PriceFilter from '../pricefilter/PriceFilter';
 
 const Nav: React.FC = () => {
 
@@ -113,6 +114,7 @@ const gridStyle: React.CSSProperties = {
 
 const cardStyle: React.CSSProperties = {
   border: '1px solid #ddd',
+  background: '#fff',
   borderRadius: '8px',
   padding: '16px',
   textAlign: 'center',

@@ -3,13 +3,27 @@ import { SearchResultsGrid } from '../components/nav/Nav';
 import Nav from '../components/nav/Nav';
 import styled from 'styled-components';
 import PriceFilter from '../components/pricefilter/PriceFilter';
+import { useEffect, useState } from 'react';
+import { Product } from '../types/Product';
 
 export const SearchResults: React.FC = () => {
   const location = useLocation();
-  const products = location.state?.products || [];
+  const products: Product[] = location.state?.products || [];
   const searchString = location.state?.searchString || "";
 
-  
+  const [price, setPrice] = useState(100);
+  const [applied, setApplied] = useState(false);
+
+  const filteredProducts = applied ? products.filter((product) => product.price <=  price)
+  : products;
+
+  const highestPrice = products.reduce((max, product) => {
+    return product.price > max ? product.price : max;
+  }, 0);
+
+  useEffect(() => {
+    console.log(highestPrice);
+  })
 
   return (
     <GlobalStyles>
@@ -24,8 +38,14 @@ export const SearchResults: React.FC = () => {
       <WrapperSld>
        
       <Wrapper>
-      <PriceFilter />
-      <SearchResultsGrid products={products} />
+      <PriceFilter 
+        price={price} 
+        setPrice={setPrice} 
+        applied={applied} 
+        setApplied={setApplied} 
+        maxPrice={highestPrice}
+      />
+      <SearchResultsGrid products={filteredProducts} />
       </Wrapper>
       </WrapperSld>
     </GlobalStyles>
